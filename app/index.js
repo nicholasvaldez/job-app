@@ -13,8 +13,36 @@ import {
 const Home = () => {
   const router = useRouter()
   return (
-    <SafeAreaView>
-      <Text>Home</Text>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
+      <Stack.Screen
+        options={{
+          headerStyle: {
+            backgroundColor: COLORS.lightWhite,
+          },
+          headerShadowVisible: false,
+          headerLeft: () => (
+            <ScreenHeaderBtn iconUrl={icons.menu} dimensions="60%" />
+          ),
+          headerRight: () => (
+            <ScreenHeaderBtn iconUrl={icons.menu} dimensions="60%" />
+          ),
+          headerTitle: "",
+        }}
+      />
+
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View
+          style={{
+            flex: 1,
+            padding: SIZES.medium,
+          }}
+        >
+          <Welcome />
+
+          <PopularJobs />
+          <NearbyJobs />
+        </View>
+      </ScrollView>
     </SafeAreaView>
   )
 }
